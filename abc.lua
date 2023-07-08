@@ -17,10 +17,11 @@ LY = "QQ:997788733_LuoYe"
 ----------------        罗技G系列鼠标侧键     ------------------------------
 --------------------------------------------------------------------------
 -- 如果你是G-HUB罗技驱动，不要乱改位置和侧键编号，会导致失灵
-fastloot_key = 5
-mouseX = 10000
-mouseY = 9000
-mouseRelative = 700
+fastloot_key = 5 -- Nút để loot nhanh
+mouseX1 = 10000 -- Mouse is at (10000, 9000)
+mouseY1 = 9000
+mouseX2 = 50000 -- Mouse is at (50000, 9000)
+mouseY2 = 9000
 m416_cdk_luoye = nil
 ump9_cdk_luoye = 7
 pp19_cdk_luoye = 9
@@ -671,9 +672,9 @@ function OnEvent(event, arg)
 
     if (event == "MOUSE_BUTTON_PRESSED" and arg == fastloot_key) then
         for i = 0, 5 do
-            MoveMouseTo(mouseX, mouseY);
+            MoveMouseTo(mouseX1, mouseY1)
             PressMouseButton(1)
-            MoveMouseRelative(mouseRelative, 0)
+            MoveMouseTo(mouseX2, mouseY2)
             Sleep(10)
             ReleaseMouseButton(1)
             Sleep(15)
